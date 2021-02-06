@@ -40,7 +40,7 @@ function number3() {
 number3();
 
 alert("задача№3");
-prompt("Введите 5-ти значное число");
+
 function num5() {
   let text = "";
   let bigNum = prompt("Введите 5-ти значное число");
