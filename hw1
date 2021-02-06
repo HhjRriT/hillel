@@ -1,5 +1,5 @@
 alert("Добрый день, задача№1");
-let userName = prompt("Привет, как тебя зовут?");
+let userName = prompt("Привет, как тебя зовут?");  // нет проверок значений 
 function userAge() {
   let age = prompt("Веддите ваш год рождения");
   if (age > 1950 && age < 2021) {
@@ -33,7 +33,7 @@ function number3() {
       }
       ++counter;
     }
-    alert("четные : " + eq2);
+    alert("четные : " + eq2);  //0 тоже попадет в список
     alert("не четные : " + neq2);
   } else {
     alert("Вы не ввели 3 числа, повторим!");
