@@ -17,6 +17,9 @@ function number3() {
   if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
     let sum = num1 + num2 + num3;
     alert("sum = " + sum);
+    let middle = num1 + num2 + num3
+    middle = middle / 3 
+    alert('среднее =' +(middle.toFixed(2)))
     let numbers = [];
     let eq2 = [];
     let neq2 = [];
