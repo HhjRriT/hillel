@@ -1,0 +1,62 @@
+alert("Добрый день, задача№1");
+let userName = prompt("Привет, как тебя зовут?");
+function userAge() {
+  let age = prompt("Веддите ваш год рождения");
+  if (age > 1950 && age < 2021) {
+    age = 2020 - age;
+    alert(userName + " " + age);
+  } else userAge();
+}
+userAge();
+
+alert("задача№2");
+function number3() {
+  let num1 = +prompt("введите первое число");
+  let num2 = +prompt("введите второе число");
+  let num3 = +prompt("введите третье число");
+  if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+    let sum = num1 + num2 + num3;
+    alert("sum = " + sum);
+    let numbers = [];
+    let eq2 = [];
+    let neq2 = [];
+    numbers.push(num1, num2, num3);
+    let counter = 0;
+    while (counter < 3) {
+      if (numbers[counter] % 2 === 1) {
+        neq2.push(numbers[counter]);
+      } else {
+        eq2.push(numbers[counter]);
+      }
+      ++counter;
+    }
+    alert("четные : " + eq2);
+    alert("не четные : " + neq2);
+  } else {
+    alert("Вы не ввели 3 числа, повторим!");
+    number3();
+  }
+}
+number3();
+
+alert("задача№3");
+prompt("Введите 5-ти значное число");
+function num5() {
+  let text = "";
+  let bigNum = prompt("Введите 5-ти значное число");
+  if (bigNum.length === 5) {
+    if (!isNaN(bigNum)) {
+      for (let i of bigNum) {
+        text = text + i + " ";
+      }
+      alert(text);
+    } else {
+      alert("не похоже на число");
+      num5();
+    }
+  } else {
+    alert("это не пятизначное число");
+    num5();
+  }
+}
+num5();
