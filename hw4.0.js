@@ -28,7 +28,7 @@ function calc(num1, num2, action) {
     }
 }
 
-// решение под ввод с промта + switch case
+// решение под ввод с промта + switch case, получилась не чистая функция
 function calcPromted() {
     const num1 = prompt("первое число");
     const num2 = prompt("второе число");
