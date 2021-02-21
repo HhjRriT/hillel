@@ -8,6 +8,7 @@ if (num1 > num2) {
     alert("числа равны");
 }
 // test branch
+
 const numN = +prompt("дайте число") % 10;
 if (numN % 2 === 1) {
     alert("число заканьчивается на " + numN + " не четное");
