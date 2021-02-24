@@ -20,7 +20,7 @@ function forEach(arr, callBack) {
 
 forEach(someArray, doLog);
 
-function map(arr, callBack) {
+    function map(arr, callBack) {
     const result = [];
     for (let i of arr) {
         result.push(callBack(i));
@@ -62,4 +62,4 @@ function every(arr, callBack) {
     return true;
 }
 
-console.log(every(someArray, isEven))
+console.log(every(someArray, isEven));
