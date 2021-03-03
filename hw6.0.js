@@ -47,6 +47,7 @@ function objectCheck(obj1, obj2) {
 }
 
 console.log(objectCheck(obj, objCopy))
+console.log(objCopy === obj)
 
 function charCalculated(str) {
     let result = {};
