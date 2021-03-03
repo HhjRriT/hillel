@@ -17,7 +17,7 @@ function deepCopy(orig) {
         return orig;
     } else if (Array.isArray(orig)) {
         let arr = [];
-        for (let i of orig) {
+        for (const i of orig) {
             arr.push(deepCopy(i));
         }
         return arr;
@@ -43,14 +43,14 @@ console.log(someArr[1].someKey[0].lucky === copyOfSomeArr[1].someKey[0].lucky);
 
 
 function createSum() {
-    let sum = 0
+    let sum = 0;
     return {
         doSum : function (num) {
             return sum+=num;
         }
     }
 }
-const sum = createSum().doSum
+const sum = createSum().doSum;
 
 console.log(sum(2))
 console.log(sum(2))
