@@ -1,5 +1,5 @@
 const someObj = {
-    usersCount: [["activ", 2],["del", 0]],
+    usersCount: [["activ", 2], ["del", 0]],
     userInfo: [
         {userName: "art", userPass: 123, userId: 1},
         {userName: "ivan", userPass: 333, userId: 2}
@@ -29,6 +29,7 @@ function deepCopy(orig) {
         return result;
     }
 }
+
 const copyOfSomeObj = deepCopy(someObj);
 console.log(someObj === copyOfSomeObj);
 console.log(someObj.userInfo === copyOfSomeObj.userInfo);
@@ -41,16 +42,14 @@ console.log(someArr[1].someKey[0] === copyOfSomeArr[1].someKey[0]);
 console.log(someArr[1].someKey[0].lucky === copyOfSomeArr[1].someKey[0].lucky);
 
 
-
 function createSum() {
     let sum = 0;
-    return {
-        doSum : function (num) {
-            return sum+=num;
-        }
+    return function (num) {
+        return sum += num;
     }
 }
-const sum = createSum().doSum;
+
+const sum = createSum();
 
 console.log(sum(2))
 console.log(sum(2))
