@@ -1,16 +1,6 @@
+countBits = n => n.toString(2).split('0').join('').length;
 
-function createSum() {
-    let sum = 0;
-    return function (num) {
-        return sum += num;
-    }
-
-}
-
-const sum = createSum();
-
-console.log(sum(2))
-console.log(sum(2))
-console.log(sum(2))
-console.log(sum(3))
-console.log(sum(5))
+console.log(countBits(10))
+let n = 345345
+    n =  n.toString(2).split("0").join("").length
+console.log(n)
