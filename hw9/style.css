@@ -1,11 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    margin: 0 auto;
+body{
+    margin: 20px;
 }
-body {
+div {
+    margin: 0 auto;
+    box-sizing: border-box;
     background-color: #f5f7fa;
     padding: 40px;
+    max-width: 500px;
+    border: 2px solid;
 }
 
+li {
+    position: relative;
+}
+
+button {
+    margin-left: 15px;
+    position: relative;
+    top: -20px;
+    left: 100px;
+}
+
+.addMe {
+    position: static;
+}
+
+input {
+    margin-left: 60px;
+}
