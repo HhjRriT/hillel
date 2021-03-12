@@ -5,7 +5,7 @@ const input = document.createElement("input");
 const addMe = document.createElement("button");
 
 addMe.type = "button";
-addMe.innerText = "addMe";
+addMe.innerText = "Добавить";
 addMe.className = "addMe";
 mainDiv.appendChild(input);
 mainDiv.appendChild(addMe);
@@ -36,7 +36,7 @@ function makeAList(arr) {
         ol.appendChild(rename);
         ol.appendChild(del);
         rename.addEventListener("click", function () {
-            arr[i] = prompt("на что меняем?");
+            arr[i] = prompt(`кто вмсето ${arr[i]} ?`) || arr[i];
             mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
         })
         del.addEventListener("click", function () {
