@@ -29,10 +29,8 @@ function makeAList(arr) {
         const li = document.createElement("li");
         const rename = document.createElement("button");
         rename.innerText = "изменить";
-        rename.className = i;
         const del = document.createElement("button");
         del.innerText = "удалить";
-        del.className = i;
         li.innerText = arr[i];
         ol.appendChild(li);
         ol.appendChild(rename);
