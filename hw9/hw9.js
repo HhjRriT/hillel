@@ -1,24 +1,27 @@
 const users = ['Harry', 'Rone', 'Malfoy', 'Hagrid'];
-
+const form = document.createElement("form");
 const mainDiv = document.createElement("div");
 const input = document.createElement("input");
 const addMe = document.createElement("button");
 
-addMe.type = "button";
+addMe.type = "confirm";
 addMe.innerText = "Добавить";
 addMe.className = "addMe";
-mainDiv.appendChild(input);
-mainDiv.appendChild(addMe);
+mainDiv.appendChild(form)
+form.appendChild(input);
+form.appendChild(addMe);
 document.body.appendChild(mainDiv);
 
 const list = makeAList(users);
 mainDiv.appendChild(list);
 
-function addNewOne() {
-    console.log("sss");
-    users.push(input.value);
-    input.value = null;
-    mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
+function addNewOne(event) {
+    event.preventDefault();
+    if (input.value) {
+        users.push(input.value);
+        input.value = null;
+        mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
+    }
 }
 
 addMe.addEventListener("click", addNewOne)
