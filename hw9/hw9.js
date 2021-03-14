@@ -1,53 +1,67 @@
 const users = ['Harry', 'Rone', 'Malfoy', 'Hagrid'];
-const form = document.createElement("form");
-const mainDiv = document.createElement("div");
-const input = document.createElement("input");
-const addMe = document.createElement("button");
+const buttons = ["изменить", "удалить"];
 
-addMe.type = "confirm";
-addMe.innerText = "Добавить";
-addMe.className = "addMe";
-mainDiv.appendChild(form)
-form.appendChild(input);
-form.appendChild(addMe);
-document.body.appendChild(mainDiv);
-
-const list = makeAList(users);
-mainDiv.appendChild(list);
-
-function addNewOne(event) {
-    event.preventDefault();
-    if (input.value) {
-        users.push(input.value);
-        input.value = null;
-        mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
-    }
+function creatWebForm(btn, listener, text) {
+    const form = document.createElement("form");
+    const input = document.createElement("input");
+    const subm = document.createElement("button");
+    subm.type = btn;
+    subm.innerText = text;
+    subm.className = "inputBtn";
+    subm.setAttribute("disabled", "disabled")
+    subm.addEventListener("click", listener);
+    form.appendChild(input);
+    input.addEventListener("input", () => input.value.length === 0 ? subm.setAttribute("disabled", "disabled") : subm.removeAttribute("disabled"))
+    form.appendChild(subm);
+    return form;
 }
 
-addMe.addEventListener("click", addNewOne)
-
-function makeAList(arr) {
-    const ol = document.createElement("ol");
-    for (let i = 0; i < arr.length; i++) {
-        const li = document.createElement("li");
-        const rename = document.createElement("button");
-        rename.innerText = "изменить";
-        const del = document.createElement("button");
-        del.innerText = "удалить";
-        li.innerText = arr[i];
-        ol.appendChild(li);
-        ol.appendChild(rename);
-        ol.appendChild(del);
-        rename.addEventListener("click", function () {
-            arr[i] = prompt(`кто вмсето ${arr[i]} ?`) || arr[i];
-            mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
+function createBtn(name, event, element) {
+    const button = document.createElement("button");
+    button.innerText = name;
+    if (name === "изменить") {
+        button.addEventListener(event, function () {
+            users[element] = prompt(`кто вмсето ${users[element]} ?`) || users[element];
+            workSpace.replaceChild(makeAList(users, buttons), workSpace.lastChild);
         })
-        del.addEventListener("click", function () {
-            if (confirm(`Вы хотите удалить ${arr[i]} ?`)) {
-                arr.splice(i, 1);
-                mainDiv.replaceChild(makeAList(users), mainDiv.lastChild);
+    } else if (name === "удалить") {
+        button.addEventListener(event, function () {
+            if (confirm(`Вы хотите удалить ${users[element]} ?`)) {
+                users.splice(element, 1);
+                workSpace.replaceChild(makeAList(users, buttons), workSpace.lastChild);
             }
         })
     }
+    return button;
+}
+
+function addNewOne(event) {
+    event.preventDefault();
+    const input = document.querySelector("input");
+    if (input.value && !users.includes(input.value)) {
+        users.push(input.value);
+        input.value = null;
+        workSpace.replaceChild(makeAList(users, buttons), workSpace.lastChild);
+    }
+}
+
+function makeAList(arr, arrOfBtn) {
+    const ol = document.createElement("ol");
+    for (let i = 0; i < arr.length; i++) {
+        const li = document.createElement("li");
+        li.innerText = arr[i];
+        ol.appendChild(li);
+        if (arrOfBtn) {
+            for (let j of arrOfBtn) {
+                ol.appendChild(createBtn(j, "click", i));
+            }
+        }
+    }
     return ol;
 }
+
+const workSpace = document.body;
+const form = creatWebForm("submit", addNewOne, "добавить");
+workSpace.appendChild(form);
+const list = makeAList(users, buttons);
+workSpace.appendChild(list);

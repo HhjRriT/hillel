@@ -1,5 +1,10 @@
 body{
-    margin: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #f5f7fa;
+    padding: 40px;
+    max-width: 500px;
+    border: 2px solid;
 }
 div {
     margin: 0 auto;
@@ -18,10 +23,10 @@ button {
     margin-left: 15px;
     position: relative;
     top: -20px;
-    left: 100px;
+    left: 200px;
 }
 
-.addMe {
+.inputBtn {
     position: static;
 }
 
